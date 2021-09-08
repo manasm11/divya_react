@@ -1,11 +1,25 @@
-import React from 'react'
+import { useState, Suspense } from 'react';
 
-function Root() {
+import { useServerResponse } from './Cache.client';
+import { LocationContext } from './LocationContext.client';
+
+export default function Root() {
     return (
-        <div>
-            HELLO
-        </div>
-    )
+        <Suspense fallback={null}>
+            <Content />
+        </Suspense>
+    );
 }
 
-export default Root
+function Content() {
+    const [location, setLocation] = useState({
+        selectedId: null
+    });
+    const response = useServerResponse(location);
+    return (
+        <LocationContext.Provider value={[location, setLocation]}>
+            CLIENT COMPONENT !!!
+            {response.readRoot()}
+        </LocationContext.Provider>
+    );
+}

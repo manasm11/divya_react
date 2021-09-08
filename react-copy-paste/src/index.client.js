@@ -1,5 +1,5 @@
-import ReactDOM from "react-dom";
-import React from 'react';
-import Root from './Root.client'
+import {unstable_createRoot} from 'react-dom';
+import Root from './Root.client';
 
-ReactDOM.render(<Root/>, document.getElementById("root"))
+const root = unstable_createRoot(document.getElementById('root'));
+root.render(<Root/>);
