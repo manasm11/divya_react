@@ -1,0 +1,20 @@
+.App {
+  text-align: center;
+}
+
+.images {
+  display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.images::-webkit-scrollbar {
+  display: none;
+}
+
+img {
+  width: 300px;
+  height: 300px;
+}
